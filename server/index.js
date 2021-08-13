@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import categoriesRoutes from './routes/categories.js';
 import productsRoutes from './routes/products.js';
+import watchistemsRoutes from './routes/watchitems.js'
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use('/categories', categoriesRoutes);
 app.use('/products', productsRoutes);
+app.use('/watchitems',watchistemsRoutes)
 
 const CONNECTION_URL = 'mongodb+srv://nada:nada123@cluster0.eqeoh.mongodb.net/mazadat?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;

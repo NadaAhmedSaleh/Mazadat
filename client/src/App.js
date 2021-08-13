@@ -1,19 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import Product from './components/Product/Product'
-import laptop from './trial images/laptop.png'
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Header  from './components/Header/Header';
+import HomePage from './pages/HomePage/HomePage';
+import MyPosts from './pages/MyPosts/MyPosts';
+import { AppStateProvider } from './AppGlobalState';
 
 const App = () => {
 
   return (
- <div>
-   <Product productPhoto={laptop} productName="nada ndaa nada nada" productLeftItems="3" productPrice="50" productDescription="
-   Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ..."/>
-   
-   <Product productPhoto={laptop} productName="nada ndaa nada nada" productLeftItems="3" productPrice="50" productDescription="
-   Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lectus lorem nunc leifend laorevtr istique et congue. Vivamus adipiscin vulputate g nisl ut dolor ..."/>
-  
- </div>
+    <AppStateProvider>
+    <BrowserRouter>
+ <Header/>
+ <Switch>
+ <Route component={HomePage} path="/homepage" exact />
+ <Route component={MyPosts} path="/userposts" exact />
+ </Switch>
+ </BrowserRouter>
+ </AppStateProvider>
   );
 };
 
 export default App;
+
+

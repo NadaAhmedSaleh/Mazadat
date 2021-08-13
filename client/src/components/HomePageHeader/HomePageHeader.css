@@ -1,0 +1,27 @@
+.hp-header-main-container{
+    background-color: #F6F7F8 ;
+    margin: auto;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+    width: 800px;
+    height: 70px;
+    color: #22262A;
+    display: flex;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 20px;
+
+
+}
+
+.sort-by-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.drop-down-container{
+    width: 100px;
+}

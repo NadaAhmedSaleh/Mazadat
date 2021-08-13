@@ -2,10 +2,11 @@
 .one-product-container{
     display: flex;
     border-bottom: 3px solid #f6f7f8 ;
-    width: 870px;
+    width: 100%;
     padding: 10px;
     align-items: center;
     padding-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .one-product-info-container{
