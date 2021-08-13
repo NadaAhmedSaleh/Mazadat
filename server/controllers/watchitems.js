@@ -29,6 +29,8 @@ export const getUserWatchList = async (req, res) => {
     }
 }
 
+
+
 export const addToWatchList = async (req, res) => {
   
 

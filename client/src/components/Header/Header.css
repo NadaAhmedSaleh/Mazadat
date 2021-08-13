@@ -12,7 +12,7 @@
 .header-img-container{
     height: 40px;
 }
-.header-buttons{
+.header-button{
     
     height: 40px;
     background-color: white;
@@ -25,7 +25,7 @@
     align-items: center;
     display: flex;
 }
-.header-buttons:hover{
+.header-button:hover{
     color: #3e7ada ;
     border: 2px solid;
     

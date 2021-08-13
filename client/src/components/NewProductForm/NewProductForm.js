@@ -9,7 +9,7 @@ const NewProductFrom = (props) => {
 
     const [cateogries,setCategories] = useState([])
     const [selectedCategory,setSelectedCategory] = useState("Select Category")
-    const [productToCreate, setProductToCreate] = useState({ ownerId: '', name: '', categoryId: '', quantity: '', price: '',imageUrl:''});
+    const [productToCreate, setProductToCreate] = useState({ ownerId: props.userId, name: '', categoryId: '', quantity: '', price: '',imageUrl:''});
 
     useEffect(async() => {
         var tempCategories = await getCategories()
@@ -25,25 +25,26 @@ const NewProductFrom = (props) => {
         e.preventDefault();
         createProduct(productToCreate)
         alert("product created successfully")
-        setProductToCreate({...productToCreate, ownerId: '', name: '', categoryId: '', quantity: '', price: ''})
+        setProductToCreate({...productToCreate, name: '', categoryId: '', quantity: '', price: ''})
         setSelectedCategory("Select Category")
-
+        
     }
 
     return (
-      <Paper>
+      <Paper className="new-product-form-container">
         <form autoComplete="off"  onSubmit={handleSubmit}>
-          <h3>Product</h3>
-          <TextField name="name" variant="outlined" label="name" fullWidth value={productToCreate.name} onChange={(e) =>setProductToCreate ({ ...productToCreate, name: e.target.value })} />
-          <TextField name="price" variant="outlined" label="price" fullWidth value={productToCreate.price} onChange={(e) => setProductToCreate({ ...productToCreate, price: e.target.value })} />
-          <TextField name="quantity" variant="outlined" label="quantity" fullWidth value={productToCreate.quantity} onChange={(e) => setProductToCreate({ ...productToCreate, quantity: e.target.value })} />
-          <Select  label="category"
+          <h3>Add Product</h3>
+          <TextField name="name" className="one-entry-container" required label="name" fullWidth value={productToCreate.name} onChange={(e) =>setProductToCreate ({ ...productToCreate, name: e.target.value })} />
+          <TextField name="price" className="one-entry-container" required  label="price" fullWidth value={productToCreate.price} onChange={(e) => setProductToCreate({ ...productToCreate, price: e.target.value })} />
+          <TextField name="quantity" className="one-entry-container"required label="quantity" fullWidth value={productToCreate.quantity} onChange={(e) => setProductToCreate({ ...productToCreate, quantity: e.target.value })} />
+         
+          <div className="one-entry-container"  > <p>Add Product Photo</p><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductToCreate({ ...productToCreate, imageUrl: base64 })} /></div>
+          <Select required  label="category"
         value={productToCreate.categoryId}
         placeholder={selectedCategory} 
         onChange={(e)=>{setSelectedCategory(e.label); setProductToCreate ({ ...productToCreate,categoryId:e.value})}}  
         options={cateogries}/>
-          <div ><FileBase type="file" multiple={false} onDone={({ base64 }) => setProductToCreate({ ...productToCreate, imageUrl: base64 })} /></div>
-          <Button variant="contained" color="primary" size="large" type="submit" fullWidth>Submit</Button>
+         <Button  variant="contained" color="primary" fullWidth type="submit" >Submit</Button> 
         </form>
       </Paper>
     );

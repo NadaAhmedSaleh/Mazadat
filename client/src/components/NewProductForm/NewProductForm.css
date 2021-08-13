@@ -7,3 +7,25 @@
     opacity: 1;
   }
 
+
+.new-product-form-container{
+    width: 800px;
+    align-items: center;
+    margin: auto;
+
+}
+
+
+
+
+.one-entry-container{
+    border-radius: 0px;
+    border: gray 1px solid;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+    box-sizing: border-box;
+    display: flex;
+}
+

@@ -20,7 +20,7 @@ const[products,SetProducts] = useState([])
          {products.map((p)=>{
              
              return(
-            <Product productPhoto={p.imageUrl} productName={p.name} productPrice={p.price} productCategory={p.categoryId} productLeftItems={p.quantity}/>
+            <Product productPhoto={p.imageUrl} productName={p.name} productPrice={p.price} productCategory={p.categoryId} productLeftItems={p.quantity} productid={p._id}/>
               ) })}
 
     

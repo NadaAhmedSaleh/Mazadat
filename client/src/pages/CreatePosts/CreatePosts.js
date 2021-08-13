@@ -1,12 +1,13 @@
 import React, { useState, useEffect,useContext } from 'react';
-import './MyPosts.css'
+import './CreatePosts.css'
 import { AppStateContext } from "../../AppGlobalState";
+import  NewProductForm from '../../components/NewProductForm/NewProductForm'
 const MyPosts = () => {
 
     const { userId,setUserId } = useContext(AppStateContext);
   return (
  <div>
-  my posts
+  <NewProductForm userId={userId}/>
  </div>
   );
 };
